@@ -1,0 +1,156 @@
+<template>
+<div>
+  <header id="landing-product" class="landing landing-clients">
+    <div class="background-image">
+        <div class="image-overlay">
+            <header>
+                <h1 class="light main-title">SITECAMPAIGN SHOP</h1>
+                <p class="sub-title light">
+                   Improve your conversation rates through visitor segmentation and personalized marketing messages
+                </p>
+            </header>
+        </div>
+    </div>
+  </header>
+  
+
+  <section class="content content-gallery content-product">
+    <div class="header flex-header">
+        <div class="hr-line"></div>
+        <h2>NEWS</h2>
+        <div class="hr-line"></div>
+    </div>
+   <div class="flex-box-container">
+     <product-box v-for="(product, index) in products":key="index" v-bind:product="product" ></product-box>
+    </div>
+    <div class="header flex-header">
+        <div class="hr-line"></div>
+        <h2>SALE</h2>
+        <div class="hr-line"></div>
+    </div>
+   <div class="flex-box-container">
+     <product-box v-for="(product, index) in products":key="index" v-bind:product="product" ></product-box>
+    </div>
+  </section>
+</div>
+</template>
+
+<script type="text/javascript">
+  import ProductBox from './ProductBox'
+  export default {
+    // name: FrontPage,
+    components: {
+      ProductBox
+    },
+    data() {
+        return {
+            products: [
+              {
+                name: "Tudor",
+                image: "/static/img/top-image.77f633a.png"
+              }
+            ]
+        }
+    },
+    methods: {
+        // showForm() {
+        //     this.isEditing = true;
+        // },
+        // hideForm(){
+        //     this.isEditing = false;
+        // },
+        // completeTask(){
+        //     this.todo.done = true;
+        // },
+        // deleteTodo(todo){
+        //     this.$emit('delete-todo', todo);
+        // }
+    }
+  };
+</script>
+
+<style>
+.landing{
+  height:  100vh;
+  width: 100vw;
+  position: relative;
+}
+.background-image{
+  height:  100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../assets/top-image.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: cover;
+}
+@media(min-width:1024px){
+  .background-image{
+    background-attachment: fixed;
+  }
+}
+.image-overlay{
+  height:  100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: columns;
+  justify-content: center;
+  align-items: center;
+}
+  
+header{
+  text-align: center;
+  width: 400px;
+  
+  /* margin-top: 80px; */
+  max-width: 100%;
+}
+@media(min-width: 768px){
+  heder{
+    width: 600px; 
+    /* margin-top: 100px; */
+  }
+}
+
+.squares-wrapper{
+  margin-top: 30px;
+}
+
+
+@media(min-width: 1400px){
+  .landing{
+    height: 70vh;
+  }
+  .background-image{
+    height: 70vh;
+  }
+  .image-overlay{
+    height: 70vh;
+  }
+}
+
+.flex-header{
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px auto;;
+}
+.hr-line{
+    width: 42%;
+    background-color: #545454;
+    height: 3px;
+}
+
+.flex-box-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50p
+}
+</style>
