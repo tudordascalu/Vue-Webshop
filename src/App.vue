@@ -76,4 +76,23 @@ header{
   color: #fff;
 }
 
+.btn{
+  cursor: pointer;
+  font-size: 1.3em;
+  font-weight: bold;
+  border: none;
+  /* border: 1px solid #fff; */
+  background-color: #fff;
+  border-radius:2px;
+  padding: 15px;
+  text-transform: uppercase;
+  color: #545454;
+  transition-duration: 1s;
+  font-family: 'Trade Gothic Condensed';
+}
+.btn:hover {
+    background-color: #ffb800;
+    /* border-color: #ffb800; */
+    color: #fff;
+}
 </style>

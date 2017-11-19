@@ -70,24 +70,4 @@ p{
     width: 100%;
     height: 100%;
 }
-    
-.btn{
-  cursor: pointer;
-  font-size: 1.3em;
-  font-weight: bold;
-  border: none;
-  /* border: 1px solid #fff; */
-  background-color: #fff;
-  border-radius:2px;
-  padding: 15px;
-  text-transform: uppercase;
-  color: #545454;
-  transition-duration: 1s;
-}
-.btn:hover {
-    background-color: #ffb800;
-    /* border-color: #ffb800; */
-    color: #fff;
-}
-
 </style>
