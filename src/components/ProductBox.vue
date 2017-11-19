@@ -1,17 +1,22 @@
 <template>
-    <div class="box">
-        <img class="box-img" :src="product.image" alt="">
-        <div class="box-overlay">
-            <h3>{{product.name}}</h3>
-            <p>Buy our new products here</p>
-            <a class="btn-animation btn" v-on:click="seeCase(product)">VIEW CASE STUDY</a>
+    <div>
+        <div v-if="!empty" class="box">
+            <img class="box-img" :src="product.image" alt="">
+            <div class="box-overlay">
+                <h3>{{product.name}}</h3>
+                <p>Buy our new products here</p>
+                <a class="btn-animation btn" v-on:click="seeCase(product)">VIEW CASE STUDY</a>
+            </div>
+        </div>
+        <div v-if="empty" class="box empty-box">
+            
         </div>
     </div>
 </template>
 
 <script type="text/javascript">
   export default {
-    props: ['product'],
+    props: ['product', 'empty'],
     data() {
         return {
 
@@ -34,6 +39,9 @@
     opacity: 1;
     transition-duration :.5s;   
 } 
+.empty-box{
+    height: 0!important;
+}
 .box-overlay {
     position: absolute;
     top: 0;

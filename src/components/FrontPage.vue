@@ -22,6 +22,9 @@
     </div>
    <div class="flex-box-container">
      <product-box v-for="(product, index) in products":key="index" v-bind:product="product" ></product-box>
+     <product-box v-bind:product="product" v-bind:empty="true"></product-box>
+     <product-box v-bind:product="product" v-bind:empty="true"></product-box>
+     <product-box v-bind:product="product" v-bind:empty="true"></product-box>
     </div>
     <div class="header flex-header">
         <div class="hr-line"></div>
@@ -30,6 +33,9 @@
     </div>
    <div class="flex-box-container">
      <product-box v-for="(product, index) in products":key="index" v-bind:product="product" ></product-box>
+     <product-box v-bind:product="product" v-bind:empty="true"></product-box>
+     <product-box v-bind:product="product" v-bind:empty="true"></product-box>
+     <product-box v-bind:product="product" v-bind:empty="true"></product-box>
     </div>
   </section>
 </div>
@@ -133,7 +139,15 @@ header{
     height: 70vh;
   }
 }
-
+header{
+  width: 600px;
+}
+.sub-title{
+  font-weight: 200;
+  font-size: 2em;
+  line-height: 1.2;
+  margin-top: -7px; 
+}
 .flex-header{
     display: flex;
     width: 90%;
@@ -147,10 +161,14 @@ header{
     height: 3px;
 }
 
+h2{
+  font-size: 2em;
+}
 .flex-box-container{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 50p
+  margin-bottom: 50px;
+  flex-wrap: wrap;
 }
 </style>
