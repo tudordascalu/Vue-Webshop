@@ -43,17 +43,6 @@ export default {
 </script>
 <style>
 
-.back-btn{
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  color: #474e5d;
-  font-size: 1em;
-  font-weight: 600;
-}
-.right p{
-    color: #474e5d;
-}
 .back-btn span{
     font-size: 1.3em;
     margin-right: 10px;
@@ -69,10 +58,7 @@ export default {
   background-color: #f4f4f4;
   position: relative;
 }
-.content-product #first .container a {
-  left: 0;
-  top: -45px;
-}
+
 .content-product #first .container .left {
   width: 40%;
   height: 100%;

@@ -95,4 +95,19 @@ header{
     /* border-color: #ffb800; */
     color: #fff;
 }
+.back-btn{
+  position: absolute;
+  top: -45px;
+  left: 0;
+  color: #474e5d;
+  font-size: 1em;
+  font-weight: 600;
+}
+.right p{
+    color: #474e5d;
+}
+
+a{
+  cursor: pointer;
+}
 </style>
