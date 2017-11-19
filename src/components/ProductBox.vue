@@ -5,7 +5,7 @@
             <div class="box-overlay">
                 <h3>{{product.name}}</h3>
                 <p>Buy our new products here</p>
-                <a class="btn-animation btn" v-on:click="seeCase(product)">VIEW CASE STUDY</a>
+                <a class="btn-animation btn" v-on:click="seeProduct(product)">VIEW CASE STUDY</a>
             </div>
         </div>
         <div v-if="empty" class="box empty-box">
@@ -23,8 +23,9 @@
         }
     },
     methods: {
-      seeCase() {
-          console.log("Button clicked ->", product);
+      seeProduct(product) {
+        //   console.log("Button clicked ->", product);
+          this.$emit('see-product', product);
       }
     }
   };

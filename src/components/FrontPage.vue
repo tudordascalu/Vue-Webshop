@@ -1,5 +1,6 @@
 <template>
 <div>
+  <div v-if="!seeProduct">
   <header id="landing-product" class="landing landing-clients">
     <div class="background-image">
         <div class="image-overlay">
@@ -14,14 +15,14 @@
   </header>
   
 
-  <section class="content content-gallery content-product">
+  <section class="content content-gallery content-product" style="flex-direction: column">
     <div class="header flex-header">
         <div class="hr-line"></div>
         <h2>NEWS</h2>
         <div class="hr-line"></div>
     </div>
    <div class="flex-box-container">
-     <product-box v-for="(product, index) in products":key="index" v-bind:product="product" ></product-box>
+     <product-box v-on:see-product="seeProd" v-for="(product, index) in products":key="index" v-bind:product="product" ></product-box>
      <product-box v-bind:product="product" v-bind:empty="true"></product-box>
      <product-box v-bind:product="product" v-bind:empty="true"></product-box>
      <product-box v-bind:product="product" v-bind:empty="true"></product-box>
@@ -32,21 +33,27 @@
         <div class="hr-line"></div>
     </div>
    <div class="flex-box-container">
-     <product-box v-for="(product, index) in products":key="index" v-bind:product="product" ></product-box>
+     <product-box v-on:see-product="seeProd" v-for="(product, index) in products":key="index" v-bind:product="product" ></product-box>
      <product-box v-bind:product="product" v-bind:empty="true"></product-box>
      <product-box v-bind:product="product" v-bind:empty="true"></product-box>
      <product-box v-bind:product="product" v-bind:empty="true"></product-box>
     </div>
   </section>
+  </div>
+  <div>
+    <product v-on:go-back="goBack" v-bind:product="productPeek" v-if="seeProduct"></product>
+  </div>
 </div>
 </template>
 
 <script type="text/javascript">
   import ProductBox from './ProductBox'
+  import Product from './Product'
   export default {
     // name: FrontPage,
     components: {
-      ProductBox
+      ProductBox,
+      Product
     },
     data() {
         return {
@@ -55,7 +62,12 @@
                 name: "Tudor",
                 image: "/static/img/top-image.77f633a.png"
               }
-            ]
+            ],
+            seeProduct: false,
+            productPeek: {
+                name: "Tudor",
+                image: "/static/img/top-image.77f633a.png"
+              }
         }
     },
     methods: {
@@ -71,6 +83,13 @@
         // deleteTodo(todo){
         //     this.$emit('delete-todo', todo);
         // }
+        seeProd(product){
+          this.productPeek = product;
+          this.seeProduct = true;
+        },
+        goBack(){
+          this.seeProduct = false;
+        }
     }
   };
 </script>
@@ -108,7 +127,7 @@
   justify-content: center;
   align-items: center;
 }
-  
+
 header{
   text-align: center;
   width: 400px;

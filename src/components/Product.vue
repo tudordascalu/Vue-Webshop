@@ -2,7 +2,7 @@
 <div class="content-product">
     <section id="first" class="content">
         <div class="container">
-        <a class="back-btn"><span><</span> BACK TO PRODUCTS</a>
+        <a class="back-btn" v-on:click="goBack()"><span><</span> BACK TO PRODUCTS</a>
             <div class="left">
                 <div class="img-big">
                     <img src="/static/img/top-image.77f633a.png">
@@ -14,9 +14,9 @@
                 </div>  
             </div> 
             <div class="right">
-                <h2 id="product-name">ROSE GOLD</h2>
-                <p><?php the_content()?></p>
-                <button class="btn-animation btn" v-on:click="setCookie('ROSE GOLD')">ADD TO CART</button>
+                <h2 id="product-name">{{product.name}}</h2>
+                <p>{{product.description}}</p>
+                <button class="btn-animation btn" v-on:click="setCookie(product.name)">ADD TO CART</button>
             </div>
         </div>       
     </section>
@@ -25,9 +25,13 @@
 </template>
 <script>
 export default {
+    props: ['product'],
     methods: {
         setCookie(productName){
             document.cookie = productName; 
+        },
+        goBack(){
+            this.$emit('go-back');
         }
     }
 }
