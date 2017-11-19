@@ -59,7 +59,7 @@
         return {
             products: [
               {
-                name: "Tudor",
+                name: "ROSE GOLD",
                 image: "/static/img/top-image.77f633a.png",
                 p1:" MELBOURNE MINIMAL",
                 p2: "$95.00",
@@ -76,18 +76,6 @@
         }
     },
     methods: {
-        // showForm() {
-        //     this.isEditing = true;
-        // },
-        // hideForm(){
-        //     this.isEditing = false;
-        // },
-        // completeTask(){
-        //     this.todo.done = true;
-        // },
-        // deleteTodo(todo){
-        //     this.$emit('delete-todo', todo);
-        // }
         seeProd(product){
           this.productPeek = product;
           this.seeProduct = true;

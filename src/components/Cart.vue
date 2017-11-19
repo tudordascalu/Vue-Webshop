@@ -52,7 +52,15 @@
 
 <script>
 export default {
+    created: function(){
+        var products = document.cookie.split(';').filter(function(c) {
+            return c.trim().indexOf('delighted') > -1;
+        }).map(function(c) {
+            return c.trim();
+        });
 
+        console.log(products);
+    }
 }
 </script>
 

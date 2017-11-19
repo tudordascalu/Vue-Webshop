@@ -31,7 +31,7 @@ export default {
     props: ['product'],
     methods: {
         setCookie(productName){
-            document.cookie = productName; 
+            document.cookie = "cart=" + productName; 
             console.log("cookie was set");
             this.$emit('go-back');
         },
