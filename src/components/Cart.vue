@@ -19,13 +19,13 @@
                     </div>
                 </div>
                 
-                <div class="row">
+                <div class="row" v-for="(product,index) in cartProducts":key="index">
                     <div class="first-column">
                         <div class="left-content">
                             <img src="/static/img/top-image.77f633a.png">
                         </div>
                         <div class="right-content">
-                            <h1>ROSE GOLD</h1>
+                            <h1>{{product.name}}</h1>
                             <h2>In stock</h2>
                             <div class="button-container">
                                 <a style="margin-right: 12px">Edit</a>
@@ -51,17 +51,58 @@
 </template>
 
 <script>
-export default {
-    created: function(){
-        var products = document.cookie.split(';').filter(function(c) {
-            return c.trim().indexOf('delighted') > -1;
-        }).map(function(c) {
-            return c.trim();
-        });
 
-        console.log(products);
+export default {
+    methods: {
+        getSavedProducts(){ 
+            const products = document.cookie.split(';').filter(function(c) {
+                return c.trim().indexOf('cart') > -1;
+            }).map(function(c) {
+                return c.trim();
+            });
+            return products;
+        },
+        getCookieVal(cookie) {
+            if (cookie.indexOf('cart') == 0) {
+                return cookie.substring(5, cookie.length);
+            }
+            return "";
+        },
+        initCart() {
+            var cookies = this.getSavedProducts();
+            for(var i = 0; i < cookies.length; i++) {
+                var productName = this.getCookieVal(cookies[i]);
+                if(productName) {
+                    for(var i = 0; i < this.products.length; i++){
+                        if(this.products[i].name.toUpperCase() == productName.toUpperCase()){
+                            this.cartProducts.push(this.products[i]);
+                        }
+                    }
+                }
+            }
+        }
+    },
+      data() {
+        return {
+            products: [
+              {
+                name: "ROSE GOLD",
+                image: "/static/img/top-image.77f633a.png",
+                p1:" MELBOURNE MINIMAL",
+                p2: "$95.00",
+                p3: "Pretty in peach.",
+                p4: "Glamour without the glitz.",
+                p5: "Neutral tones with a brushed rose gold casing and peach Italian leather band."
+              }
+            ],
+            cartProducts: []
+        }
+    },
+    mounted() {
+        this.initCart();
     }
 }
+
 </script>
 
 <style>
