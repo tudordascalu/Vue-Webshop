@@ -15,7 +15,10 @@
             </div> 
             <div class="right">
                 <h2 id="product-name">{{product.name}}</h2>
-                <p>{{product.description}}</p>
+                <p>{{product.p1}}</p>
+                <p>{{product.p2}}</p>
+                <p>{{product.p3}}</p>
+                <p>{{product.p4}}</p>
                 <button class="btn-animation btn" v-on:click="setCookie(product.name)">ADD TO CART</button>
             </div>
         </div>       
@@ -29,6 +32,8 @@ export default {
     methods: {
         setCookie(productName){
             document.cookie = productName; 
+            console.log("cookie was set");
+            this.$emit('go-back');
         },
         goBack(){
             this.$emit('go-back');
@@ -45,6 +50,9 @@ export default {
   color: #474e5d;
   font-size: 1em;
   font-weight: 600;
+}
+.right p{
+    color: #474e5d;
 }
 .back-btn span{
     font-size: 1.3em;

@@ -60,7 +60,12 @@
             products: [
               {
                 name: "Tudor",
-                image: "/static/img/top-image.77f633a.png"
+                image: "/static/img/top-image.77f633a.png",
+                p1:" MELBOURNE MINIMAL",
+                p2: "$95.00",
+                p3: "Pretty in peach.",
+                p4: "Glamour without the glitz.",
+                p5: "Neutral tones with a brushed rose gold casing and peach Italian leather band."
               }
             ],
             seeProduct: false,
