@@ -22,7 +22,7 @@
                 <div class="row" v-for="(product,index) in cartProducts":key="index">
                     <div class="first-column">
                         <div class="left-content">
-                            <img src="/static/img/top-image.png">
+                            <img :src="product.image">
                         </div>
                         <div class="right-content">
                             <h1>{{product.name}}</h1>
@@ -85,7 +85,7 @@ export default {
             products: [
               {
                 name: "ROSE GOLD",
-                image: "/static/img/top-image.png",
+                image: "/static/img/products/watches/1.png",
                 category: "watch",
                 p1:" MELBOURNE MINIMAL",
                 p2: "$95.00",
@@ -95,7 +95,7 @@ export default {
               },
               {
                 name: "SUNGLASSES",
-                image: "/static/img/top-image.png",
+                image: "/static/img/products/sunglasses/1.jpg",
                 category: "sunglasses",
                 p1:" MELBOURNE MINIMAL",
                 p2: "$95.00",
@@ -105,7 +105,7 @@ export default {
               },
               {
                 name: "BROGUE SHOES",
-                image: "/static/img/products/1.png",
+                image: "/static/img/products/shoes/1.png",
                 category: "shoes",
                 p1:" MELBOURNE MINIMAL",
                 p2: "$95.00",

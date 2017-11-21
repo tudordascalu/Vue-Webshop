@@ -5,7 +5,7 @@
             <div class="box-overlay">
                 <h3>{{product.name}}</h3>
                 <p>Buy our new products here</p>
-                <a class="btn-animation btn" style="border:none!important" v-on:click="seeProduct(product)">VIEW CASE STUDY</a>
+                <a class="btn-animation btn" style="border:none!important" v-on:click="seeProduct(product)">SHOP NOW</a>
             </div>
         </div>
         <div v-if="empty" class="box empty-box">
