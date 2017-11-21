@@ -2,7 +2,7 @@
 <div class="content-product cart">
     <section id="first" class="content">
         <div class="container container-cart">
-            <a class="back-btn"><span><</span> BACK TO PRODUCTS</a>
+            <a class="back-btn" href="/"><span><</span> BACK TO PRODUCTS</a>
             <div class="cart-table">
                 <div class="row">
                     <div class="first-column column-header">
@@ -22,7 +22,7 @@
                 <div class="row" v-for="(product,index) in cartProducts":key="index">
                     <div class="first-column">
                         <div class="left-content">
-                            <img src="/static/img/top-image.77f633a.png">
+                            <img src="https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/top-image.77f633a.png">
                         </div>
                         <div class="right-content">
                             <h1>{{product.name}}</h1>
@@ -84,12 +84,33 @@ export default {
             products: [
               {
                 name: "ROSE GOLD",
-                image: "/static/img/top-image.77f633a.png",
+                image: "https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/top-image.77f633a.png",
+                category: "watch",
                 p1:" MELBOURNE MINIMAL",
                 p2: "$95.00",
                 p3: "Pretty in peach.",
                 p4: "Glamour without the glitz.",
                 p5: "Neutral tones with a brushed rose gold casing and peach Italian leather band."
+              },
+              {
+                name: "SUNGLASSES",
+                image: "https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/top-image.77f633a.png",
+                category: "sunglasses",
+                p1:" MELBOURNE MINIMAL",
+                p2: "$95.00",
+                p3: "Pretty in peach.",
+                p4: "Wide Fit Oxford Brogue Sunglasses In Burgundy Leather.",
+                p5: ""
+              },
+              {
+                name: "BROGUE SHOES",
+                image: "https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/1.77f633a.png",
+                category: "shoes",
+                p1:" MELBOURNE MINIMAL",
+                p2: "$95.00",
+                p3: "Color: Burgundy",
+                p4: "Wide Fit Oxford Brogue Sunglasses In Burgundy Leather.",
+                p5: ""
               }
             ],
             cartProducts: []
@@ -112,6 +133,7 @@ export default {
   align-items: center;
   position: relative;
   text-align: left;
+  background-color: #fff!important;
 }
 
 .cart-table {

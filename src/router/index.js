@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import FrontPage from '@/components/FrontPage'
-// import Product from '@/components/Product'
+import Cart from '@/components/Cart'
 
 Vue.use(Router)
 
@@ -11,8 +11,13 @@ export default new Router({
     {
       path: '/',
       name: 'Front page',
-      component: FrontPage
+      component: FrontPage,      
     },
+    {
+      path: '/cart',
+      component: Cart
+
+    }
     // {
     //   path: '/products',
     //   name: 'ProductBox',
@@ -20,3 +25,4 @@ export default new Router({
     // }
   ]
 })
+

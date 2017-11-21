@@ -102,6 +102,7 @@ header{
   color: #474e5d;
   font-size: 1em;
   font-weight: 600;
+  text-decoration: none!important;
 }
 .right p{
     color: #474e5d;

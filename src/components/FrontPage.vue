@@ -60,18 +60,39 @@
             products: [
               {
                 name: "ROSE GOLD",
-                image: "/static/img/top-image.77f633a.png",
+                image: "https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/top-image.77f633a.png",
+                category: "watch",
                 p1:" MELBOURNE MINIMAL",
                 p2: "$95.00",
                 p3: "Pretty in peach.",
                 p4: "Glamour without the glitz.",
                 p5: "Neutral tones with a brushed rose gold casing and peach Italian leather band."
+              },
+              {
+                name: "SUNGLASSES",
+                image: "https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/top-image.77f633a.png",
+                category: "sunglasses",
+                p1:" MELBOURNE MINIMAL",
+                p2: "$95.00",
+                p3: "Pretty in peach.",
+                p4: "Wide Fit Oxford Brogue Sunglasses In Burgundy Leather.",
+                p5: ""
+              },
+              {
+                name: "BROGUE SHOES",
+                image: "https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/top-image.77f633a.png",
+                category: "shoes",
+                p1:" MELBOURNE MINIMAL",
+                p2: "$95.00",
+                p3: "Color: Burgundy",
+                p4: "Wide Fit Oxford Brogue Sunglasses In Burgundy Leather.",
+                p5: ""
               }
             ],
             seeProduct: false,
             productPeek: {
                 name: "Tudor",
-                image: "/static/img/top-image.77f633a.png"
+                image: "https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/top-image.77f633a.png"
               }
         }
     },
@@ -182,5 +203,7 @@ h2{
   justify-content: center;
   margin-bottom: 50px;
   flex-wrap: wrap;
+  margin: auto;
+  max-width: 1400px;
 }
 </style>

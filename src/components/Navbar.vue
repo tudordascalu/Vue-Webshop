@@ -14,7 +14,7 @@
             <ul id="menu-main" class="nav">
             <li class="menu-item menu-contact"><a href="#contact">Front Page</a></li>
             <li class="menu-item menu-contact"><a href="#contact">Products</a></li>
-            <li class="menu-item menu-contact"><a href="cart">Cart</a></li>
+            <li class="menu-item menu-contact"><a href="cart"><img src="https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/cart.png"></a></li>
             
             </ul> 
         </nav>
@@ -70,6 +70,7 @@ export default {
 #menu-main{
     display: flex;
     list-style: none;
+    align-items: center;
 }
 #menu-main li{
     margin-right: 25px;
