@@ -29,7 +29,7 @@
                             <h2>In stock</h2>
                             <div class="button-container">
                                 <a style="margin-right: 12px">Edit</a>
-                                <a>remove</a>
+                                <a v-on:click="removeCartItem(product)">remove</a>
                             </div>
                         </div>
                     </div>
@@ -54,13 +54,16 @@
 
 export default {
     methods: {
-        getSavedProducts(){ 
-            const products = document.cookie.split(';').filter(function(c) {
-                return c.trim().indexOf('cart') > -1;
-            }).map(function(c) {
-                return c.trim();
-            });
-            return products;
+        getSavedProducts() { 
+            var savedProducts = [];
+            for( var i = 0; i < this.products.length; i++){
+                const productName = this.products[i].name;
+                if(document.cookie.indexOf(productName) > -1) {
+                    console.log(productName + " is in basket");
+                    savedProducts.push(this.products[i]);
+                }
+            }
+            return savedProducts;
         },
         getCookieVal(cookie) {
             if (cookie.indexOf('cart') == 0) {
@@ -69,17 +72,11 @@ export default {
             return "";
         },
         initCart() {
-            var cookies = this.getSavedProducts();
-            for(var i = 0; i < cookies.length; i++) {
-                var productName = this.getCookieVal(cookies[i]);
-                if(productName) {
-                    for(var i = 0; i < this.products.length; i++){
-                        if(this.products[i].name.toUpperCase() == productName.toUpperCase()){
-                            this.cartProducts.push(this.products[i]);
-                        }
-                    }
-                }
-            }
+            this.cartProducts = this.getSavedProducts();
+        },
+        removeCartItem(product) {
+            document.cookie = product.name + '=cart;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            this.initCart();
         }
     },
       data() {

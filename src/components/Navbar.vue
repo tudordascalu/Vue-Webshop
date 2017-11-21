@@ -14,7 +14,7 @@
             <ul id="menu-main" class="nav">
             <li class="menu-item menu-contact"><a href="#contact">Front Page</a></li>
             <li class="menu-item menu-contact"><a href="#contact">Products</a></li>
-            <li class="menu-item menu-contact"><a href="#contact">Cart</a></li>
+            <li class="menu-item menu-contact"><a href="cart">Cart</a></li>
             
             </ul> 
         </nav>
