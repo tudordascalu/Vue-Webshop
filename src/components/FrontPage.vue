@@ -22,7 +22,7 @@
         <div class="hr-line"></div>
     </div>
    <div class="flex-box-container">
-     <product-box v-on:see-product="seeProd" v-for="(product, index) in products":key="index" v-bind:product="product" ></product-box>
+     <product-box v-on:see-product="seeProd" v-for="(product, index) in products":key="index" v-bind:product="product"></product-box>
      <product-box v-bind:product="products[0]" v-bind:empty="true"></product-box>
      <product-box v-bind:product="products[0]" v-bind:empty="true"></product-box>
      <product-box v-bind:product="products[0]" v-bind:empty="true"></product-box>
@@ -60,7 +60,10 @@
             products: [
               {
                 name: "ROSE GOLD",
-                image: "https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/top-image.77f633a.png",
+                image: "/static/img/products/watches/1.png",
+                image2: "/static/img/products/watches/2.png",
+                image3: "/static/img/products/watches/3.png",
+                image4: "/static/img/products/watches/4.png",
                 category: "watch",
                 p1:" MELBOURNE MINIMAL",
                 p2: "$95.00",
@@ -70,7 +73,10 @@
               },
               {
                 name: "SUNGLASSES",
-                image: "https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/top-image.77f633a.png",
+                image: "/static/img/products/sunglasses/1.jpg",
+                image2: "/static/img/products/sunglasses/2.jpeg",
+                image3: "/static/img/products/sunglasses/3.jpg",
+                image4: "",
                 category: "sunglasses",
                 p1:" MELBOURNE MINIMAL",
                 p2: "$95.00",
@@ -80,7 +86,10 @@
               },
               {
                 name: "BROGUE SHOES",
-                image: "https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/top-image.77f633a.png",
+                image: "/static/img/products/shoes/1.png",
+                image2: "/static/img/products/shoes/2.png",
+                image3: "/static/img/products/shoes/3.png",
+                image4: "/static/img/products/shoes/4.png",
                 category: "shoes",
                 p1:" MELBOURNE MINIMAL",
                 p2: "$95.00",
@@ -92,7 +101,7 @@
             seeProduct: false,
             productPeek: {
                 name: "Tudor",
-                image: "https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/top-image.77f633a.png"
+                image: "/static/img/top-image.png"
               }
         }
     },
@@ -120,7 +129,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url("../assets/top-image.png");
+  background-image: url("/static/img/top-image.png");
   background-repeat: no-repeat;
   background-position: right top;
   background-size: cover;
@@ -137,7 +146,7 @@
   top: 0;
   left: 0;
   display: flex;
-  flex-direction: columns;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }

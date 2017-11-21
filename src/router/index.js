@@ -18,11 +18,6 @@ export default new Router({
       component: Cart
 
     }
-    // {
-    //   path: '/products',
-    //   name: 'ProductBox',
-    //   component: Product
-    // }
   ]
 })
 

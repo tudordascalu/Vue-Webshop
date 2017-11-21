@@ -5,12 +5,12 @@
         <a class="back-btn" v-on:click="goBack()"><span><</span> BACK TO PRODUCTS</a>
             <div class="left">
                 <div class="img-big">
-                    <img src="/static/img/top-image.77f633a.png">
+                    <img :src="product.image">
                 </div>  
                 <div class="img-small">
-                    <img src= "/static/img/top-image.77f633a.png">
-                    <img style="margin: 0 5%;" src="/static/img/top-image.77f633a.png">
-                    <img src="/static/img/top-image.77f633a.png">
+                    <img :src="product.image2">
+                    <img style="margin: 0 5%;" :src="product.image3">
+                    <img v-if="product.image4 != ''" :src="product.image4">
                 </div>  
             </div> 
             <div class="right">
@@ -75,7 +75,8 @@ export default {
   justify-content: center;
 }
 .content-product #first .container .left .img-big img {
-  height: 100%;
+  min-height: 100%;
+  width: 100%
 }
 .content-product #first .container .left .img-small {
   margin-top: 30px;

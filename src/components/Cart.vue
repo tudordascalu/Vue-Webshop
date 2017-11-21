@@ -22,7 +22,7 @@
                 <div class="row" v-for="(product,index) in cartProducts":key="index">
                     <div class="first-column">
                         <div class="left-content">
-                            <img src="https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/top-image.77f633a.png">
+                            <img src="/static/img/top-image.png">
                         </div>
                         <div class="right-content">
                             <h1>{{product.name}}</h1>
@@ -84,7 +84,7 @@ export default {
             products: [
               {
                 name: "ROSE GOLD",
-                image: "https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/top-image.77f633a.png",
+                image: "/static/img/top-image.png",
                 category: "watch",
                 p1:" MELBOURNE MINIMAL",
                 p2: "$95.00",
@@ -94,7 +94,7 @@ export default {
               },
               {
                 name: "SUNGLASSES",
-                image: "https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/top-image.77f633a.png",
+                image: "/static/img/top-image.png",
                 category: "sunglasses",
                 p1:" MELBOURNE MINIMAL",
                 p2: "$95.00",
@@ -104,7 +104,7 @@ export default {
               },
               {
                 name: "BROGUE SHOES",
-                image: "https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/1.77f633a.png",
+                image: "/static/img/products/1.png",
                 category: "shoes",
                 p1:" MELBOURNE MINIMAL",
                 p2: "$95.00",
@@ -134,6 +134,8 @@ export default {
   position: relative;
   text-align: left;
   background-color: #fff!important;
+  max-width: 1500px;
+  margin: auto;
 }
 
 .cart-table {

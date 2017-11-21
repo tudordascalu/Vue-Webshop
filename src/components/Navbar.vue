@@ -4,7 +4,7 @@
   <div class="container">
 
     <a class="brand">
-        <!-- <img style="margin-top:-3px"class="second-logo-image" width="50" height="60"  src="<?= get_template_directory_uri(); ?>/dist/images/logo-transparent.svg" alt />  -->
+        <img style="margin-top:-3px"class="second-logo-image" src="/static/img/logo.png" alt /> 
     </a>
 
     <div>
@@ -12,9 +12,9 @@
         <nav class="nav-primary light">
             <a class="btn-close-menu btn-close"></a>
             <ul id="menu-main" class="nav">
-            <li class="menu-item menu-contact"><a href="#contact">Front Page</a></li>
-            <li class="menu-item menu-contact"><a href="#contact">Products</a></li>
-            <li class="menu-item menu-contact"><a href="cart"><img src="https://s3-eu-west-1.amazonaws.com/demo.sitecampaign.com/static/img/cart.png"></a></li>
+            <li class="menu-item menu-contact"><a>Front Page</a></li>
+            <li class="menu-item menu-contact"><a>Products</a></li>
+            <li class="menu-item menu-contact"><a href="cart" style="color: #ffb800"><img src="/static/img/cart.png" height="20px"><span v-if="basketItems > 0">{{basketItems}}</span></a></li>
             
             </ul> 
         </nav>
@@ -24,7 +24,16 @@
 </template>
 <script>
 export default {
-  
+    data() {
+        return {
+            basketItems: 0
+        }
+    },   
+    methods: {
+        getCartItems(items){
+            this.basketItems = items; 
+        }
+    }
 }
 </script>
 
@@ -60,6 +69,13 @@ export default {
   width: 50px;
   height: 60px;
   margin-top: 5px;
+}
+
+.brand img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto!important;
 }
 
 .main-nav .container{
