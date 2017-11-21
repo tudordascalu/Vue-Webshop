@@ -39,10 +39,14 @@ export default {
         goBack(){
             this.$emit('go-back');
         }
+    },
+    created() {
+        //Scrolls to top when view is displayed
+        window.scrollTo(0, 0);
     }
 }
 </script>
-<style>
+<style scoped>
 
 .back-btn span{
     font-size: 1.3em;

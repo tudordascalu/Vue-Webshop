@@ -2,7 +2,7 @@
 <div class="content-product cart">
     <section id="first" class="content">
         <div class="container container-cart">
-            <a class="back-btn" href="/"><span><</span> BACK TO PRODUCTS</a>
+            <router-link to="/"><a class="back-btn"><span><</span> BACK TO PRODUCTS</a></router-link>
             <div class="cart-table">
                 <div class="row">
                     <div class="first-column column-header">

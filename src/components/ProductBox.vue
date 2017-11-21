@@ -54,7 +54,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0,0,0,.3);
+    /* background-color: rgba(0,0,0,.3); */
 }
 h3 {
     font-size:2.3em;

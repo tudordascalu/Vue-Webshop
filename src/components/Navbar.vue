@@ -14,7 +14,7 @@
             <ul id="menu-main" class="nav">
             <li class="menu-item menu-contact"><a>Front Page</a></li>
             <li class="menu-item menu-contact"><a>Products</a></li>
-            <li class="menu-item menu-contact"><a href="cart" style="color: #ffb800"><img src="/static/img/cart.png" height="20px"><span id="cart-items" v-if="cartItems > 0">{{cartItems}}</span></a></li>
+            <li class="menu-item menu-contact"><router-link to="cart"><a style="color: #ffb800"><img src="/static/img/cart.png" height="20px"><span id="cart-items" v-if="cartItems > 0">{{cartItems}}</span></a></router-link></li>
             
             </ul> 
         </nav>
