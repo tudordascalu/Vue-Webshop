@@ -33,6 +33,7 @@ export default {
         setCookie(productName){
             document.cookie = productName + "=cart"; 
             console.log("cookie was set");
+            this.$emit('add-cart');
             this.$emit('go-back');
         },
         goBack(){

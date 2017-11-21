@@ -41,7 +41,7 @@
   </section>
   </div>
   <div>
-    <product v-on:go-back="goBack" v-bind:product="productPeek" v-if="seeProduct"></product>
+    <product v-on:go-back="goBack" v-on:add-cart="addCart" v-bind:product="productPeek" v-if="seeProduct"></product>
   </div>
 </div>
 </template>
@@ -112,6 +112,10 @@
         },
         goBack(){
           this.seeProduct = false;
+        },
+        addCart(){
+          console.log("true");
+          this.$emit('add-cart');
         }
     }
   };

@@ -14,7 +14,7 @@
             <ul id="menu-main" class="nav">
             <li class="menu-item menu-contact"><a>Front Page</a></li>
             <li class="menu-item menu-contact"><a>Products</a></li>
-            <li class="menu-item menu-contact"><a href="cart" style="color: #ffb800"><img src="/static/img/cart.png" height="20px"><span v-if="basketItems > 0">{{basketItems}}</span></a></li>
+            <li class="menu-item menu-contact"><a href="cart" style="color: #ffb800"><img src="/static/img/cart.png" height="20px"><span id="cart-items" v-if="cartItems > 0">{{cartItems}}</span></a></li>
             
             </ul> 
         </nav>
@@ -24,6 +24,7 @@
 </template>
 <script>
 export default {
+    props: ['cartItems'],
     data() {
         return {
             basketItems: 0
@@ -64,6 +65,10 @@ export default {
   position: fixed;
   top: auto;
   left: auto;
+}
+#cart-items{
+    margin-left: 4px;
+    font-size: 20px;
 }
 .brand {
   width: 50px;
