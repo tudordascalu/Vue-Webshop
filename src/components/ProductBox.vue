@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="!empty" class="box">
-            <img class="box-img" :src="product.image" alt="">
+            <img class="box-img" :src="product.boximg" alt="">
             <div class="box-overlay">
                 <h3>{{product.name}}</h3>
                 <p>Buy our new products here</p>

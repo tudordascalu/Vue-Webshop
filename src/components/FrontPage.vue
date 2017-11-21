@@ -60,10 +60,11 @@
             products: [
               {
                 name: "ROSE GOLD",
-                image: "/static/img/products/watches/1.png",
+                boximg: "/static/img/products/watches/box-img.png",
                 image2: "/static/img/products/watches/2.png",
                 image3: "/static/img/products/watches/3.png",
                 image4: "/static/img/products/watches/4.png",
+                image: "/static/img/products/watches/1.png",
                 category: "watch",
                 p1:" MELBOURNE MINIMAL",
                 p2: "$95.00",
@@ -73,9 +74,10 @@
               },
               {
                 name: "SUNGLASSES",
-                image: "/static/img/products/sunglasses/1.jpg",
+                boximg: "/static/img/products/sunglasses/box-img.png",
                 image2: "/static/img/products/sunglasses/2.jpeg",
                 image3: "/static/img/products/sunglasses/3.jpg",
+                image: "/static/img/products/sunglasses/1.jpg",
                 image4: "",
                 category: "sunglasses",
                 p1:" MELBOURNE MINIMAL",
@@ -86,10 +88,11 @@
               },
               {
                 name: "BROGUE SHOES",
-                image: "/static/img/products/shoes/1.png",
+                boximg: "/static/img/products/shoes/box-img.png",
                 image2: "/static/img/products/shoes/2.png",
                 image3: "/static/img/products/shoes/3.png",
                 image4: "/static/img/products/shoes/4.png",
+                image: "/static/img/products/shoes/1.png",
                 category: "shoes",
                 p1:" MELBOURNE MINIMAL",
                 p2: "$95.00",
