@@ -77,6 +77,9 @@ const mutations = {
       var itemInBasket = _.find(this.state.basket, { code: productCode });
       const itemIndex = this.state.basket.indexOf(itemInBasket);
       this.state.basket.splice(itemIndex, 1);
+    },
+    SET_BASKET(state, basket) {
+      this.state.basket = basket;
     }
 };
 

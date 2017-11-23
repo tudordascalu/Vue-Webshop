@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <navbar v-bind:cartItems="items"></navbar>
-    <router-view v-on:add-cart="addCart"></router-view>
+    <navbar></navbar>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -38,6 +38,22 @@ export default {
           }
       }
       return cartItems;
+    },
+    getBasketItems() {
+      var basket = [];
+      $.each(document.cookie.split(/; */), function()  {
+        var splitCookie = this.split('=');
+        for(var i = 0; i < this.products.length; i++) {
+          if(this.products[i].name == splitCookie[0]){
+            const basketItem = {
+              "code": this.products[i].code,
+              "qty": splitCookie[1]
+            }
+            basket.push(basketItem);
+          }
+        }
+      });
+      store.commit('SET_BASKET', basket);
     }
   },
   mounted() {
