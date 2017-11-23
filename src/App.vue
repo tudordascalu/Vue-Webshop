@@ -7,52 +7,19 @@
 
 <script>
 import Navbar from './components/Navbar';
+import store from './store/store';
+
 export default {
+  store,
   name: 'app',
+  computed: {
+    products() {
+      return store.getters.getProducts;
+    }
+  },
   data() {
     return {
       items: 0,
-      products: [
-          {
-            name: "ROSE GOLD",
-            image: "/static/img/products/watches/1.png",
-            image2: "/static/img/products/watches/2.png",
-            image3: "/static/img/products/watches/3.png",
-            image4: "/static/img/products/watches/4.png",
-            category: "watch",
-            p1:" MELBOURNE MINIMAL",
-            p2: "$95.00",
-            p3: "Pretty in peach.",
-            p4: "Glamour without the glitz.",
-            p5: "Neutral tones with a brushed rose gold casing and peach Italian leather band."
-          },
-          {
-            name: "SUNGLASSES",
-            image: "/static/img/products/sunglasses/1.jpg",
-            image2: "/static/img/products/sunglasses/2.jpeg",
-            image3: "/static/img/products/sunglasses/3.jpg",
-            image4: "",
-            category: "sunglasses",
-            p1:" MELBOURNE MINIMAL",
-            p2: "$95.00",
-            p3: "Pretty in peach.",
-            p4: "Wide Fit Oxford Brogue Sunglasses In Burgundy Leather.",
-            p5: ""
-          },
-          {
-            name: "BROGUE SHOES",
-            image: "/static/img/products/shoes/1.png",
-            image2: "/static/img/products/shoes/2.png",
-            image3: "/static/img/products/shoes/3.png",
-            image4: "/static/img/products/shoes/4.png",
-            category: "shoes",
-            p1:" MELBOURNE MINIMAL",
-            p2: "$95.00",
-            p3: "Color: Burgundy",
-            p4: "Wide Fit Oxford Brogue Sunglasses In Burgundy Leather.",
-            p5: ""
-          }
-        ]
     }
   },
   components: {
@@ -60,7 +27,6 @@ export default {
   },
   methods : {
     addCart(){
-      console.log("da");
       this.items = this.getCartItems();
     },
     getCartItems() { 

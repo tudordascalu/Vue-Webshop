@@ -47,91 +47,53 @@
 </template>
 
 <script type="text/javascript">
-  import ProductBox from './ProductBox'
-  import Product from './Product'
-  export default {
-    // name: FrontPage,
-    components: {
-      ProductBox,
-      Product
-    },
-    data() {
-        return {
-            products: [
-              {
-                name: "ROSE GOLD",
-                boximg: "/static/img/products/watches/box-img.png",
-                image2: "/static/img/products/watches/2.png",
-                image3: "/static/img/products/watches/3.png",
-                image4: "/static/img/products/watches/4.png",
-                image: "/static/img/products/watches/1.png",
-                category: "watch",
-                p1:" MELBOURNE MINIMAL",
-                p2: "$95.00",
-                p3: "Pretty in peach.",
-                p4: "Glamour without the glitz.",
-                p5: "Neutral tones with a brushed rose gold casing and peach Italian leather band."
-              },
-              {
-                name: "SUNGLASSES",
-                boximg: "/static/img/products/sunglasses/box-img.png",
-                image2: "/static/img/products/sunglasses/2.jpeg",
-                image3: "/static/img/products/sunglasses/3.jpg",
-                image: "/static/img/products/sunglasses/1.jpg",
-                image4: "",
-                category: "sunglasses",
-                p1:" MELBOURNE MINIMAL",
-                p2: "$95.00",
-                p3: "Pretty in peach.",
-                p4: "Wide Fit Oxford Brogue Sunglasses In Burgundy Leather.",
-                p5: ""
-              },
-              {
-                name: "BROGUE SHOES",
-                boximg: "/static/img/products/shoes/box-img.png",
-                image2: "/static/img/products/shoes/2.png",
-                image3: "/static/img/products/shoes/3.png",
-                image4: "/static/img/products/shoes/4.png",
-                image: "/static/img/products/shoes/1.png",
-                category: "shoes",
-                p1:" MELBOURNE MINIMAL",
-                p2: "$95.00",
-                p3: "Color: Burgundy",
-                p4: "Wide Fit Oxford Brogue Sunglasses In Burgundy Leather.",
-                p5: ""
-              }
-            ],
-            seeProduct: false,
-            productPeek: {
-                name: "Tudor",
-                image: "/static/img/top-image.png"
-              }
-        }
-    },
-    methods: {
-        seeProd(product){
-          this.productPeek = product;
-          this.seeProduct = true;
-        },
-        goBack(){
-          this.seeProduct = false;
-        },
-        addCart(){
-          console.log("true");
-          this.$emit('add-cart');
-        }
+import ProductBox from "./ProductBox";
+import Product from "./Product";
+import store from "../store/store";
+export default {
+  store,
+  components: {
+    ProductBox,
+    Product
+  },
+  computed: {
+    products() {
+      return store.getters.getProducts
     }
-  };
+  },
+  data() {
+    return {
+      seeProduct: false,
+      productPeek: {}
+    };
+  },
+  methods: {
+    seeProd(product) {
+      this.productPeek = product;
+      this.seeProduct = true;
+    },
+    goBack() {
+      this.seeProduct = false;
+    },
+    addCart() {
+      console.log("true");
+      this.$emit("add-cart");
+    }
+  },
+  created() {
+    store.getters.getProducts;
+  }
+};
 </script>
 
 <style>
-.landing{
-  height:  100vh;
+.landing {
+  height: 100vh;
   width: 100vw;
   position: relative;
 }
-.background-image{
-  height:  100vh;
+.background-image {
+  height: 100vh;
   width: 100vw;
   position: absolute;
   top: 0;
@@ -141,13 +103,13 @@
   background-position: right top;
   background-size: cover;
 }
-@media(min-width:1024px){
-  .background-image{
+@media (min-width: 1024px) {
+  .background-image {
     background-attachment: fixed;
   }
 }
-.image-overlay{
-  height:  100vh;
+.image-overlay {
+  height: 100vh;
   width: 100vw;
   position: absolute;
   top: 0;
@@ -158,62 +120,61 @@
   align-items: center;
 }
 
-header{
+header {
   text-align: center;
   width: 400px;
-  
+
   /* margin-top: 80px; */
   max-width: 100%;
 }
-@media(min-width: 768px){
-  heder{
-    width: 600px; 
+@media (min-width: 768px) {
+  heder {
+    width: 600px;
     /* margin-top: 100px; */
   }
 }
 
-.squares-wrapper{
+.squares-wrapper {
   margin-top: 30px;
 }
 
-
-@media(min-width: 1400px){
-  .landing{
+@media (min-width: 1400px) {
+  .landing {
     height: 70vh;
   }
-  .background-image{
+  .background-image {
     height: 70vh;
   }
-  .image-overlay{
+  .image-overlay {
     height: 70vh;
   }
 }
-header{
+header {
   width: 600px;
 }
-.sub-title{
+.sub-title {
   font-weight: 200;
   font-size: 2em;
   line-height: 1.2;
-  margin-top: -7px; 
+  margin-top: -7px;
 }
-.flex-header{
-    display: flex;
-    width: 90%;
-    justify-content: space-around;
-    align-items: center;
-    margin: 10px auto;;
+.flex-header {
+  display: flex;
+  width: 90%;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px auto;
 }
-.hr-line{
-    width: 42%;
-    background-color: #545454;
-    height: 3px;
+.hr-line {
+  width: 42%;
+  background-color: #545454;
+  height: 3px;
 }
 
-h2{
+h2 {
   font-size: 2em;
 }
-.flex-box-container{
+.flex-box-container {
   display: flex;
   align-items: center;
   justify-content: center;

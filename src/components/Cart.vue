@@ -51,8 +51,10 @@
 </template>
 
 <script>
+import store from '../store/store';
 
 export default {
+    store,
     methods: {
         getSavedProducts() { 
             var savedProducts = [];
@@ -80,40 +82,13 @@ export default {
             this.initCart();
         }
     },
-      data() {
+    computed: {
+        products() {
+            return store.getters.getProducts;
+        }
+    },
+    data() {
         return {
-            products: [
-              {
-                name: "ROSE GOLD",
-                image: "/static/img/products/watches/1.png",
-                category: "watch",
-                p1:" MELBOURNE MINIMAL",
-                p2: "$95.00",
-                p3: "Pretty in peach.",
-                p4: "Glamour without the glitz.",
-                p5: "Neutral tones with a brushed rose gold casing and peach Italian leather band."
-              },
-              {
-                name: "SUNGLASSES",
-                image: "/static/img/products/sunglasses/1.jpg",
-                category: "sunglasses",
-                p1:" MELBOURNE MINIMAL",
-                p2: "$95.00",
-                p3: "Pretty in peach.",
-                p4: "Wide Fit Oxford Brogue Sunglasses In Burgundy Leather.",
-                p5: ""
-              },
-              {
-                name: "BROGUE SHOES",
-                image: "/static/img/products/shoes/1.png",
-                category: "shoes",
-                p1:" MELBOURNE MINIMAL",
-                p2: "$95.00",
-                p3: "Color: Burgundy",
-                p4: "Wide Fit Oxford Brogue Sunglasses In Burgundy Leather.",
-                p5: ""
-              }
-            ],
             cartProducts: []
         }
     },
