@@ -11,6 +11,9 @@ import store from './store/store';
 
 export default {
   store,
+  components: {
+      Navbar
+  },
   name: 'app',
   computed: {
     products() {
@@ -19,11 +22,8 @@ export default {
   },
   data() {
     return {
-      items: 0,
+      items: 0
     }
-  },
-  components: {
-    Navbar
   },
   methods : {
     addCart(){

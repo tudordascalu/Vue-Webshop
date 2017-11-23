@@ -1,9 +1,6 @@
 <template>
 <div>
   <div>
-    <product v-on:go-back="goBack" v-on:add-cart="addCart" v-bind:product="productPeek" v-if="seeProduct"></product>
-  </div>
-  <div v-if="!seeProduct">
   <header id="landing-product" class="landing landing-clients">
     <div class="background-image">
         <div class="image-overlay">

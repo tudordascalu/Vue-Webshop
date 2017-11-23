@@ -8,7 +8,8 @@ Vue.use(Vuex);
 const state = {
     basket: [],
     products: [
-      {
+      { 
+        code: 'A',
         name: "ROSE GOLD",
         boximg: "/static/img/products/watches/box-img.png",
         image2: "/static/img/products/watches/2.png",
@@ -23,6 +24,7 @@ const state = {
         p5: "Neutral tones with a brushed rose gold casing and peach Italian leather band."
       },
       {
+        code: 'B',
         name: "SUNGLASSES",
         boximg: "/static/img/products/sunglasses/box-img.png",
         image2: "/static/img/products/sunglasses/2.jpeg",
@@ -37,6 +39,7 @@ const state = {
         p5: ""
       },
       {
+        code: 'C',
         name: "BROGUE SHOES",
         boximg: "/static/img/products/shoes/box-img.png",
         image2: "/static/img/products/shoes/2.png",
@@ -54,19 +57,24 @@ const state = {
   };
 
 const mutations = {
-    ADD_TO_BASKET(productCode) {
+    ADD_TO_BASKET(state, productCode) {
+        console.log('this is the '+ productCode);
         // is it in basket
         var itemInBasket = _.find(this.state.basket, { code: productCode });
   
         if(itemInBasket === undefined) {
           // if no: add to basket with 1
+          console.log(productCode);
           this.state.basket.push({
-            code: productCode, qty: 1
+            "code": productCode, "qty": 1
           });
         } else {
           // if yes: append quantity 
           itemInBasket.qty += 1;
         }
+    },
+    REMOVE_FROM_BASKET(state, productCode) {
+      delete this.state.basket.productCode;
     }
 };
 

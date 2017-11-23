@@ -4,8 +4,8 @@
             <img class="box-img" :src="product.boximg" alt="">
             <div class="box-overlay">
                 <h3>{{product.name}}</h3>
-                <p>Buy our new products here</p>
-                <a class="btn-animation btn" style="border:none!important" v-on:click="seeProduct(product)">SHOP NOW</a>
+               <p>Buy our new products here</p>
+                 <router-link style="text-decoration: none!important" :to="{ name: 'product', params: { id: product.code }}"><a class="btn-animation btn" style="border:none!important">SHOP NOW</a></router-link>
             </div>
         </div>
         <div v-if="empty" class="box empty-box">

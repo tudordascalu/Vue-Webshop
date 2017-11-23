@@ -2,7 +2,7 @@
 <div class="content-product">
     <section id="first" class="content">
         <div class="container">
-        <a class="back-btn" v-on:click="goBack()"><span><</span> BACK TO PRODUCTS</a>
+        <router-link to="/"><a class="back-btn"><span><</span> BACK TO PRODUCTS</a></router-link>
             <div class="left">
                 <div class="img-big">
                     <img :src="product.image">
@@ -19,7 +19,7 @@
                 <p>{{product.p2}}</p>
                 <p>{{product.p3}}</p>
                 <p>{{product.p4}}</p>
-                <button class="btn-animation btn" v-on:click="setCookie(product.name)">ADD TO CART</button>
+                <button class="btn-animation btn" v-on:click="setCookie(product.name, product.code)">ADD TO CART</button>
             </div>
         </div>       
     </section>
@@ -27,22 +27,38 @@
 
 </template>
 <script>
+import store from '../store/store';
+
 export default {
-    props: ['product'],
+    store,
+    computed: {
+        products() {
+            return store.getters.getProducts
+        }
+    },
+    data() {
+        return {
+            product: {}
+        }
+    },
     methods: {
-        setCookie(productName){
+        setCookie(productName, productCode){
+            store.commit('ADD_TO_BASKET', productCode);
             document.cookie = productName + "=cart"; 
             console.log("cookie was set");
             this.$emit('add-cart');
             this.$emit('go-back');
         },
-        goBack(){
-            this.$emit('go-back');
+        setProduct(productCode) {
+            for(var i=0; i<this.products.length; i++) {
+                if(productCode ==this.products[i].code) {
+                    this.product = this.products[i];
+                }
+            }
         }
     },
     created() {
-        //Scrolls to top when view is displayed
-        window.scrollTo(0, 0);
+        this.setProduct(this.$route.params.id);
     }
 }
 </script>

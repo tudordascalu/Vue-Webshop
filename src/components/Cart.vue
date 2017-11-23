@@ -55,6 +55,14 @@ import store from '../store/store';
 
 export default {
     store,
+    computed: {
+        basket() {
+            return store.getters.getBasket;
+        },
+        products() {
+            return store.getters.getProducts;
+        }
+    },
     methods: {
         getSavedProducts() { 
             var savedProducts = [];
@@ -82,17 +90,13 @@ export default {
             this.initCart();
         }
     },
-    computed: {
-        products() {
-            return store.getters.getProducts;
-        }
-    },
     data() {
         return {
             cartProducts: []
         }
     },
     mounted() {
+        console.log(this.basket);
         this.initCart();
     }
 }

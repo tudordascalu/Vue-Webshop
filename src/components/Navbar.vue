@@ -14,7 +14,7 @@
             <ul id="menu-main" class="nav">
             <li class="menu-item menu-contact"><router-link to="/"><a>Front Page</a></router-link></li>
             <li class="menu-item menu-contact"><router-link to="/"><a>Products</a></router-link></li>
-            <li class="menu-item menu-contact"><router-link to="cart"><a style="color: #ffb800"><img src="/static/img/cart.png" height="20px"><span id="cart-items" v-if="cartItems > 0">{{cartItems}}</span></a></router-link></li>
+            <li class="menu-item menu-contact"><router-link :to="{name:'cart'}"><a style="color: #ffb800"><img src="/static/img/cart.png" height="20px"><span id="cart-items" v-if="cartItems > 0">{{cartItems}}</span></a></router-link></li>
             
             </ul> 
         </nav>
