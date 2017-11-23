@@ -8,7 +8,7 @@
 <script>
 import Navbar from './components/Navbar';
 import store from './store/store';
-
+import * as $ from 'jquery';
 export default {
   store,
   components: {
@@ -17,7 +17,7 @@ export default {
   name: 'app',
   computed: {
     products() {
-      return store.getters.getProducts;
+      return store.getters.getProducts
     }
   },
   data() {
@@ -41,23 +41,28 @@ export default {
     },
     getBasketItems() {
       var basket = [];
+      var that = this;
       $.each(document.cookie.split(/; */), function()  {
         var splitCookie = this.split('=');
-        for(var i = 0; i < this.products.length; i++) {
-          if(this.products[i].name == splitCookie[0]){
+        for(var i = 0; i < that.products.length; i++) {
+          if(that.products[i].name == splitCookie[0]){
             const basketItem = {
-              "code": this.products[i].code,
+              "code": that.products[i].code,
               "qty": splitCookie[1]
             }
             basket.push(basketItem);
           }
         }
+        console.log(splitCookie);
+        
       });
       store.commit('SET_BASKET', basket);
+      console.log(store.state.basket);
     }
   },
   mounted() {
-    this.addCart();
+    //this.addCart();
+    this.getBasketItems();
   }
 }
 </script>
