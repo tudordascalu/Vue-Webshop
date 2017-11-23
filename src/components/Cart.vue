@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="second-column">
-                        <span>1</span>
+                        <span>{{qty[product.code]}}</span>
                     </div>
                     <div class="second-column">
                         <span>$95.00</span>
@@ -91,12 +91,14 @@ export default {
         },
         getCartProducts() {
             var savedProducts = [];
+            this.qty = {};
             for(var i = 0; i < this.basket.length; i++) {
                 const productCode = this.basket[i].code;
                 const productQty = this.basket[i].qty;
                 for(var j = 0; j < this.products.length; j++) {
                     if(this.products[j].code == productCode) {
                         savedProducts.push(this.products[j]);
+                        this.qty[productCode] = productQty;
                     }
                 }
             }
@@ -105,7 +107,8 @@ export default {
     },
     data() {
         return {
-            cartProducts: []
+            cartProducts: [],
+            qty: {}
         }
     },
     mounted() {
