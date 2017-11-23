@@ -82,12 +82,25 @@ export default {
             return "";
         },
         initCart() {
-            this.cartProducts = this.getSavedProducts();
+            this.cartProducts = this.getCartProducts();
         },
         removeCartItem(product) {
             document.cookie = product.name + '=cart;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             this.$emit('add-cart');
             this.initCart();
+        },
+        getCartProducts() {
+            var savedProducts = [];
+            for(var i = 0; i < this.basket.length; i++) {
+                const productCode = this.basket[i].code;
+                const productQty = this.basket[i].qty;
+                for(var j = 0; j < this.products.length; j++) {
+                    if(this.products[j].code == productCode) {
+                        savedProducts.push(this.products[j]);
+                    }
+                }
+            }
+            return savedProducts;
         }
     },
     data() {

@@ -46,8 +46,6 @@ export default {
             store.commit('ADD_TO_BASKET', productCode);
             document.cookie = productName + "=cart"; 
             console.log("cookie was set");
-            this.$emit('add-cart');
-            this.$emit('go-back');
         },
         setProduct(productCode) {
             for(var i=0; i<this.products.length; i++) {

@@ -84,6 +84,14 @@ const getters = {
   },
   getBasket(state) {
     return state.basket;
+  },
+  getQty(state) {
+    var quantity = 0;
+    for(var key in state.basket) {
+      if (!state.basket.hasOwnProperty(key)) continue;
+      quantity += state.basket[key].qty;
+    } 
+    return quantity;
   }
 }
 

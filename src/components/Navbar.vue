@@ -23,8 +23,14 @@
 </div>
 </template>
 <script>
+import store from '../store/store';
 export default {
-    props: ['cartItems'],
+    store, 
+    computed : {
+        cartItems() {
+            return store.getters.getQty;
+        }
+    },
     data() {
         return {
             basketItems: 0
