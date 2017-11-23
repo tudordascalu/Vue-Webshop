@@ -48,7 +48,7 @@ export default {
           if(that.products[i].name == splitCookie[0]){
             const basketItem = {
               "code": that.products[i].code,
-              "qty": splitCookie[1]
+              "qty": Number(splitCookie[1])
             }
             basket.push(basketItem);
           }

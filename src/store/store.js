@@ -94,16 +94,10 @@ const getters = {
     var quantity = 0;
     for(var key in state.basket) {
       if (!state.basket.hasOwnProperty(key)) continue;
-      quantity += state.basket[key].qty;
+      quantity = Number(quantity);
+      quantity += Number(state.basket[key].qty);
     } 
     return quantity;
-  },
-  getQtyOfProd(state, productCode) {
-    var itemInBasket = _.find(this.state.basket, { code: productCode });
-    if(itemInBasket) {
-      return itemInBasket.qty;
-    }
-    return 0;
   }
 }
 
