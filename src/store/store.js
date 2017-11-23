@@ -97,6 +97,13 @@ const getters = {
       quantity += state.basket[key].qty;
     } 
     return quantity;
+  },
+  getQtyOfProd(state, productCode) {
+    var itemInBasket = _.find(this.state.basket, { code: productCode });
+    if(itemInBasket) {
+      return itemInBasket.qty;
+    }
+    return 0;
   }
 }
 
