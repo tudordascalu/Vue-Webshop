@@ -86,7 +86,7 @@ export default {
         },
         removeCartItem(product) {
             document.cookie = product.name + '=cart;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-            this.$emit('add-cart');
+            store.commit('REMOVE_FROM_BASKET',product.code);
             this.initCart();
         },
         getCartProducts() {

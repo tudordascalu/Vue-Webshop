@@ -74,7 +74,9 @@ const mutations = {
         }
     },
     REMOVE_FROM_BASKET(state, productCode) {
-      delete this.state.basket.productCode;
+      var itemInBasket = _.find(this.state.basket, { code: productCode });
+      const itemIndex = this.state.basket.indexOf(itemInBasket);
+      this.state.basket.splice(itemIndex, 1);
     }
 };
 
