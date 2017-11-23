@@ -22,7 +22,7 @@
         <div class="hr-line"></div>
     </div>
    <div class="flex-box-container">
-     <product-box v-on:see-product="seeProd" v-for="(product, index) in products":key="index" v-bind:product="product"></product-box>
+     <product-box v-for="(product, index) in products":key="index" v-bind:product="product"></product-box>
      <product-box v-bind:product="products[0]" v-bind:empty="true"></product-box>
      <product-box v-bind:product="products[0]" v-bind:empty="true"></product-box>
      <product-box v-bind:product="products[0]" v-bind:empty="true"></product-box>
@@ -33,7 +33,7 @@
         <div class="hr-line"></div>
     </div>
    <div class="flex-box-container">
-     <product-box v-on:see-product="seeProd" v-for="(product, index) in products":key="index" v-bind:product="product" ></product-box>
+     <product-box v-for="(product, index) in products":key="index" v-bind:product="product" ></product-box>
      <product-box v-bind:product="products[0]" v-bind:empty="true"></product-box>
      <product-box v-bind:product="products[0]" v-bind:empty="true"></product-box>
      <product-box v-bind:product="products[0]" v-bind:empty="true"></product-box>
@@ -56,25 +56,6 @@ export default {
   computed: {
     products() {
       return store.getters.getProducts
-    }
-  },
-  data() {
-    return {
-      seeProduct: false,
-      productPeek: {}
-    };
-  },
-  methods: {
-    seeProd(product) {
-      this.productPeek = product;
-      this.seeProduct = true;
-    },
-    goBack() {
-      this.seeProduct = false;
-    },
-    addCart() {
-      console.log("true");
-      this.$emit("add-cart");
     }
   },
   created() {
