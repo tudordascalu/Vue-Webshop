@@ -51,77 +51,78 @@
 </template>
 
 <script>
-import store from '../store/store';
+import store from "../store/store";
 
 export default {
-    store,
-    computed: {
-        basket() {
-            return store.getters.getBasket;
-        },
-        products() {
-            return store.getters.getProducts;
-        }
+  store,
+  computed: {
+    basket() {
+      return store.getters.getBasket;
     },
-    methods: {
-        getSavedProducts() { 
-            var savedProducts = [];
-            for( var i = 0; i < this.products.length; i++){
-                const productName = this.products[i].name;
-                if(document.cookie.indexOf(productName) > -1) {
-                    console.log(productName + " is in basket");
-                    savedProducts.push(this.products[i]);
-                }
-            }
-            return savedProducts;
-        },
-        getCookieVal(cookie) {
-            if (cookie.indexOf('cart') == 0) {
-                return cookie.substring(5, cookie.length);
-            }
-            return "";
-        },
-        initCart() {
-            this.cartProducts = this.getCartProducts();
-        },
-        removeCartItem(product) {
-            document.cookie = product.name + '=cart;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-            store.commit('REMOVE_FROM_BASKET',product.code);
-            this.initCart();
-        },
-        getCartProducts() {
-            var savedProducts = [];
-            this.qty = {};
-            for(var i = 0; i < this.basket.length; i++) {
-                const productCode = this.basket[i].code;
-                const productQty = this.basket[i].qty;
-                for(var j = 0; j < this.products.length; j++) {
-                    if(this.products[j].code == productCode) {
-                        savedProducts.push(this.products[j]);
-                        this.qty[productCode] = productQty;
-                    }
-                }
-            }
-            return savedProducts;
-        }
-    },
-    data() {
-        return {
-            cartProducts: [],
-            qty: {}
-        }
-    },
-    mounted() {
-        console.log(this.basket);
-        this.initCart();
+    products() {
+      return store.getters.getProducts;
     }
-}
-
+  },
+  methods: {
+    getSavedProducts() {
+      var savedProducts = [];
+      for (var i = 0; i < this.products.length; i++) {
+        const productName = this.products[i].name;
+        if (document.cookie.indexOf(productName) > -1) {
+          console.log(productName + " is in basket");
+          savedProducts.push(this.products[i]);
+        }
+      }
+      return savedProducts;
+    },
+    getCookieVal(cookie) {
+      if (cookie.indexOf("cart") == 0) {
+        return cookie.substring(5, cookie.length);
+      }
+      return "";
+    },
+    initCart() {
+      this.cartProducts = this.getCartProducts();
+    },
+    removeCartItem(product) {
+      document.cookie =
+        product.name + "=cart;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+      store.commit("REMOVE_FROM_BASKET", product.code);
+      this.initCart();
+    },
+    getCartProducts() {
+      var savedProducts = [];
+      this.qty = {};
+      for (var i = 0; i < this.basket.length; i++) {
+        const productCode = this.basket[i].code;
+        const productQty = this.basket[i].qty;
+        for (var j = 0; j < this.products.length; j++) {
+          if (this.products[j].code == productCode) {
+            savedProducts.push(this.products[j]);
+            this.qty[productCode] = productQty;
+          }
+        }
+      }
+      return savedProducts;
+    }
+  },
+  data() {
+    return {
+      cartProducts: [],
+      qty: {}
+    };
+  },
+  mounted() {
+      setTimeout(() => {
+          this.initCart();
+      },500)
+  }
+};
 </script>
 
 <style>
-#first{
-    padding-top: 130px;
+#first {
+  padding-top: 130px;
 }
 .cart .container-cart {
   display: flex;
@@ -129,7 +130,7 @@ export default {
   align-items: center;
   position: relative;
   text-align: left;
-  background-color: #fff!important;
+  background-color: #fff !important;
   max-width: 1500px;
   margin: auto;
 }
@@ -198,15 +199,14 @@ export default {
   color: #545454;
 }
 
-.cart .btn{
-    border: 1px solid #474e5d; 
+.cart .btn {
+  border: 1px solid #474e5d;
 }
-.cart .btn:hover{
-    background-color: #474e5d;
-}
-
-.back-btn{
-    left: 30px;
+.cart .btn:hover {
+  background-color: #474e5d;
 }
 
+.back-btn {
+  left: 30px;
+}
 </style>

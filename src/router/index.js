@@ -8,14 +8,14 @@ import Product from '@/components/Product'
 Vue.use(Router)
 
 export default new Router({
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     return { x: 0, y: 0 }
   },
   routes: [
     {
       path: '/',
       name: 'Front page',
-      component: FrontPage,      
+      component: FrontPage,
     },
     {
       path: '/cart',
@@ -24,7 +24,7 @@ export default new Router({
     },
     {
       path: '/product/:id',
-      name:'product',
+      name: 'product',
       component: Product
     }
   ]

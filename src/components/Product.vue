@@ -36,7 +36,7 @@ export default {
       return store.getters.getProducts;
     },
     basket() {
-        return store.getters.getBasket;
+      return store.getters.getBasket;
     }
   },
   data() {
@@ -60,9 +60,9 @@ export default {
     },
     getQtyOfProd(productCode) {
       var itemInBasket = _.find(this.basket, { code: productCode });
-        if (itemInBasket) {
-            return itemInBasket.qty;
-        }
+      if (itemInBasket) {
+        return itemInBasket.qty;
+      }
       return 0;
     }
   },
