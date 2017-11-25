@@ -44,8 +44,7 @@ export default {
     methods: {
         setCookie(productName, productCode){
             store.commit('ADD_TO_BASKET', productCode);
-            const qty = store.getters.getQtyOfProd(productCode);
-            document.cookie = productName + "=" + store.getters.getQtyOfProd; 
+            document.cookie = productName + "=cart"; 
             console.log("cookie was set");
         },
         setProduct(productCode) {

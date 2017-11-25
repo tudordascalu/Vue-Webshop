@@ -99,7 +99,7 @@ const getters = {
     return quantity;
   },
   getQtyOfProd(state, productCode) {
-    var itemInBasket = _.find(state.basket, { code: productCode });
+    var itemInBasket = _.find(this.state.basket, { code: productCode });
     if(itemInBasket) {
       return itemInBasket.qty;
     }
