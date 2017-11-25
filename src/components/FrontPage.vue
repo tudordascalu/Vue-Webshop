@@ -55,7 +55,7 @@ export default {
   },
   computed: {
     products() {
-      return store.getters.getProducts
+      return store.getters.getProducts;
     }
   },
   created() {

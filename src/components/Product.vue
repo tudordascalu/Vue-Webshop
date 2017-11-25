@@ -27,44 +27,54 @@
 
 </template>
 <script>
-import store from '../store/store';
+import store from "../store/store";
 
 export default {
-    store,
-    computed: {
-        products() {
-            return store.getters.getProducts
-        }
+  store,
+  computed: {
+    products() {
+      return store.getters.getProducts;
     },
-    data() {
-        return {
-            product: {}
-        }
-    },
-    methods: {
-        setCookie(productName, productCode){
-            store.commit('ADD_TO_BASKET', productCode);
-            document.cookie = productName + "=cart"; 
-            console.log("cookie was set");
-        },
-        setProduct(productCode) {
-            for(var i=0; i<this.products.length; i++) {
-                if(productCode ==this.products[i].code) {
-                    this.product = this.products[i];
-                }
-            }
-        }
-    },
-    created() {
-        this.setProduct(this.$route.params.id);
+    basket() {
+      return store.getters.getBasket;
     }
-}
+  },
+  data() {
+    return {
+      product: {}
+    };
+  },
+  methods: {
+    setCookie(productName, productCode) {
+      store.commit("ADD_TO_BASKET", productCode);
+      const qty = this.getQtyOfProd(productCode);
+      document.cookie = productName + "=" + qty;
+      console.log("cookie was set");
+    },
+    setProduct(productCode) {
+      for (var i = 0; i < this.products.length; i++) {
+        if (productCode == this.products[i].code) {
+          this.product = this.products[i];
+        }
+      }
+    },
+    getQtyOfProd(productCode) {
+      var itemInBasket = _.find(this.basket, { code: productCode });
+      if (itemInBasket) {
+        return itemInBasket.qty;
+      }
+      return 0;
+    }
+  },
+  created() {
+    this.setProduct(this.$route.params.id);
+  }
+};
 </script>
 <style scoped>
-
-.back-btn span{
-    font-size: 1.3em;
-    margin-right: 10px;
+.back-btn span {
+  font-size: 1.3em;
+  margin-right: 10px;
 }
 .content-product #first {
   min-height: 100vh;
@@ -95,7 +105,7 @@ export default {
 }
 .content-product #first .container .left .img-big img {
   min-height: 100%;
-  width: 100%
+  width: 100%;
 }
 .content-product #first .container .left .img-small {
   margin-top: 30px;
@@ -129,14 +139,13 @@ export default {
   font-size: 1.2em;
 }
 
-.content{
-    display: flex;
-    justify-content: center;
-    text-align: left;
+.content {
+  display: flex;
+  justify-content: center;
+  text-align: left;
 }
 
-.btn{
-    border: 1px solid #474e5d;
+.btn {
+  border: 1px solid #474e5d;
 }
-
 </style>

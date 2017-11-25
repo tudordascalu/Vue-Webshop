@@ -23,25 +23,25 @@
 </div>
 </template>
 <script>
-import store from '../store/store';
+import store from "../store/store";
 export default {
-    store, 
-    computed : {
-        cartItems() {
-            return store.getters.getQty;
-        }
-    },
-    data() {
-        return {
-            basketItems: 0
-        }
-    },   
-    methods: {
-        getCartItems(items){
-            this.basketItems = items; 
-        }
+  store,
+  computed: {
+    cartItems() {
+      return store.getters.getQty;
     }
-}
+  },
+  data() {
+    return {
+      basketItems: 0
+    };
+  },
+  methods: {
+    getCartItems(items) {
+      this.basketItems = items;
+    }
+  }
+};
 </script>
 
 <style>
@@ -57,13 +57,13 @@ export default {
   letter-spacing: 2px;
   color: #fff;
 }
-.main-nav a{
-    color: #fff;
-    text-decoration: none;
-    transition-duration: .5s;
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  transition-duration: 0.5s;
 }
 .main-nav a:hover {
-  color: #FFB800;
+  color: #ffb800;
 }
 .main-nav.nav-small {
   height: 65px;
@@ -72,9 +72,9 @@ export default {
   top: auto;
   left: auto;
 }
-#cart-items{
-    margin-left: 4px;
-    font-size: 20px;
+#cart-items {
+  margin-left: 4px;
+  font-size: 20px;
 }
 .brand {
   width: 50px;
@@ -83,23 +83,23 @@ export default {
 }
 
 .brand img {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto!important;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto !important;
 }
 
-.main-nav .container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.main-nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-#menu-main{
-    display: flex;
-    list-style: none;
-    align-items: center;
+#menu-main {
+  display: flex;
+  list-style: none;
+  align-items: center;
 }
-#menu-main li{
-    margin-right: 25px;
+#menu-main li {
+  margin-right: 25px;
 }
 </style>
