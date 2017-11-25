@@ -31,6 +31,7 @@ export default {
             return store.getters.getQty;
         }
     },
+    props: ['cartItems'],
     data() {
         return {
             basketItems: 0
