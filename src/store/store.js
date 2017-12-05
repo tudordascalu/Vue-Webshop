@@ -62,7 +62,6 @@ const mutations = {
     var itemInBasket = _.find(this.state.basket, { code: productCode });
     if (itemInBasket === undefined) {
       // if no: add to basket with 1
-      console.log(productCode);
       this.state.basket.push({
         "code": productCode, "qty": 1
       });

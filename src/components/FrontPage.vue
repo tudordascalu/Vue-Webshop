@@ -59,6 +59,7 @@ export default {
     }
   },
   created() {
+    dataLayer.push({event: 'changePage'});
     store.getters.getProducts;
   }
 };

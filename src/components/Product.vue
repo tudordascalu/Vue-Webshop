@@ -67,6 +67,7 @@ export default {
     }
   },
   created() {
+    dataLayer.push({event: 'changePage'});
     this.setProduct(this.$route.params.id);
   }
 };

@@ -40,10 +40,8 @@ export default {
             basket.push(basketItem);
           }
         }
-        console.log(splitCookie);
       });
       store.commit("SET_BASKET", basket);
-      console.log(store.state.basket);
     }
   },
   mounted() {

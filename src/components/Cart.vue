@@ -69,7 +69,6 @@ export default {
       for (var i = 0; i < this.products.length; i++) {
         const productName = this.products[i].name;
         if (document.cookie.indexOf(productName) > -1) {
-          console.log(productName + " is in basket");
           savedProducts.push(this.products[i]);
         }
       }
@@ -113,6 +112,7 @@ export default {
     };
   },
   mounted() {
+      dataLayer.push({event: 'changePage'});
       setTimeout(() => {
           this.initCart();
       },500)

@@ -40,6 +40,9 @@ export default {
     getCartItems(items) {
       this.basketItems = items;
     }
+  },
+  mounted() {
+    dataLayer.push({event: 'changePage'});
   }
 };
 </script>
